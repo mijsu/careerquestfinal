@@ -4,7 +4,7 @@ import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "",
-  authDomain: "m",
+  authDomain: "",
   projectId: "",
   storageBucket: "",
   messagingSenderId: "",
