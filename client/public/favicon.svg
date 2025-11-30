@@ -1,0 +1,12 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="64" height="64" rx="12" fill="#1f2937"/>
+  
+  <!-- Upward arrow for career growth -->
+  <path d="M32 48 L32 20" stroke="#10b981" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <path d="M20 32 L32 20 L44 32" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  
+  <!-- Code brackets on sides -->
+  <path d="M14 28 L12 32 L14 36" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M50 28 L52 32 L50 36" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>
