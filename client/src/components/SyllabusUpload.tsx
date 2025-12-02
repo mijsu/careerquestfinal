@@ -24,10 +24,10 @@ export default function SyllabusUpload() {
   const { toast } = useToast();
 
   // Fetch career paths for selection
-  const { data: careerPathsData } = useQuery<{ careerPaths: CareerPath[] }>({
+  const { data: careerPathsData } = useQuery<{ paths: CareerPath[] }>({
     queryKey: ["/api/career-paths"],
   });
-  const careerPaths = careerPathsData?.careerPaths || [];
+  const careerPaths = careerPathsData?.paths || [];
 
   // Mutation for uploading syllabus
   const uploadMutation = useMutation({
