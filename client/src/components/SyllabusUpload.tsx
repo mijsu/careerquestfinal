@@ -31,11 +31,14 @@ export default function SyllabusUpload() {
 
   // Mutation for uploading syllabus
   const uploadMutation = useMutation({
-    mutationFn: async ({ pdfBase64, careerPathId, fileName }: { pdfBase64: string; careerPathId: string; fileName: string }) => {
+    mutationFn: async ({ file, careerPathId }: { file: File; careerPathId: string }) => {
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("careerPathId", careerPathId);
+      
       const response = await fetch("/api/admin/syllabus", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ pdfBase64, careerPathId, fileName }),
+        body: formData,
         credentials: "include",
       });
       if (!response.ok) {
@@ -90,21 +93,7 @@ export default function SyllabusUpload() {
       return;
     }
     
-    // Convert file to base64
-    const reader = new FileReader();
-    reader.onload = () => {
-      const base64 = reader.result as string;
-      const pdfBase64 = base64.split(',')[1]; // Remove data:application/pdf;base64, prefix
-      uploadMutation.mutate({ pdfBase64, careerPathId: selectedCareerPathId, fileName: file.name });
-    };
-    reader.onerror = () => {
-      toast({
-        title: "File Read Error",
-        description: "Failed to read the PDF file",
-        variant: "destructive",
-      });
-    };
-    reader.readAsDataURL(file);
+    uploadMutation.mutate({ file, careerPathId: selectedCareerPathId });
   };
 
   const handleRemove = () => {
